@@ -29,7 +29,7 @@ function marketingteam_setup() {
 	load_theme_textdomain( 'marketingteam', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+	//add_theme_support( 'automatic-feed-links' );
 
 	/*
 		* Let WordPress manage the document title.
@@ -99,6 +99,8 @@ function marketingteam_setup() {
 			'flex-height' => true,
 		)
 	);
+	
+	
 }
 add_action( 'after_setup_theme', 'marketingteam_setup' );
 
@@ -138,8 +140,8 @@ add_action( 'widgets_init', 'marketingteam_widgets_init' );
  * Enqueue scripts and styles.
  */
 function marketingteam_scripts() {
-	wp_enqueue_style( 'marketingteam-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'marketingteam-style', 'rtl', 'replace' );
+	//wp_enqueue_style( 'marketingteam-style', get_stylesheet_uri(), array(), _S_VERSION );
+	//wp_style_add_data( 'marketingteam-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'marketingteam-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'marketingteam-script', get_template_directory_uri() . '/js/script.js', array(), _S_VERSION, true );
@@ -185,26 +187,26 @@ function custom_post_type() {
   
 // Set UI labels for Custom Post Type
     $labels = array(
-        'name'                => _x( 'portfolio', 'Post Type General Name', 'marketingTeam' ),
-        'singular_name'       => _x( 'Portfolio', 'Post Type Singular Name', 'marketingTeam' ),
-        'menu_name'           => __( 'Portfolio', 'marketingTeam' ),
-        'parent_item_colon'   => __( 'Parent portfolio', 'marketingTeam' ),
-        'all_items'           => __( 'Todas produtos', 'marketingTeam' ),
-        'view_item'           => __( 'Ver produtos', 'marketingTeam' ),
-        'add_new_item'        => __( 'Adicionar novo produto', 'marketingTeam' ),
-        'add_new'             => __( 'Adicionar novo', 'marketingTeam' ),
-        'edit_item'           => __( 'Editar produto', 'marketingTeam' ),
-        'update_item'         => __( 'Atualizar portfolios', 'marketingTeam' ),
-        'search_items'        => __( 'Procurar produto', 'marketingTeam' ),
-        'not_found'           => __( 'Não encontrado', 'marketingTeam' ),
-        'not_found_in_trash'  => __( 'Não encontrado na lixeira', 'marketingTeam' ),
+        'name'                => _x( 'Notícias', 'Post Type General Name', 'twentytwentyone' ),
+        'singular_name'       => _x( 'Notícia', 'Post Type Singular Name', 'twentytwentyone' ),
+        'menu_name'           => __( 'Notícias', 'twentytwentyone' ),
+        'parent_item_colon'   => __( 'Parent notícia', 'twentytwentyone' ),
+        'all_items'           => __( 'Todas as notícias', 'twentytwentyone' ),
+        'view_item'           => __( 'Ver notícias', 'twentytwentyone' ),
+        'add_new_item'        => __( 'Adicionar nova notícia', 'twentytwentyone' ),
+        'add_new'             => __( 'Adicionar nova', 'twentytwentyone' ),
+        'edit_item'           => __( 'Editar notícia', 'twentytwentyone' ),
+        'update_item'         => __( 'Atualizar notícia', 'twentytwentyone' ),
+        'search_items'        => __( 'Procurar notícia', 'twentytwentyone' ),
+        'not_found'           => __( 'Não encontrado', 'twentytwentyone' ),
+        'not_found_in_trash'  => __( 'Não encontrado na lixeira', 'twentytwentyone' ),
     );
       
 // Set other options for Custom Post Type
       
     $args = array(
-        'label'               => __( 'portfolio', 'marketingTeam' ),
-        'description'         => __( 'portfolio', 'marketingTeam' ),
+        'label'               => __( 'notícias', 'twentytwentyone' ),
+        'description'         => __( 'Notícias e resenhas', 'twentytwentyone' ),
         'labels'              => $labels,
         // Features this CPT supports in Post Editor
         'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
@@ -231,23 +233,8 @@ function custom_post_type() {
     );
       
     // Registering your Custom Post Type
-    register_post_type( 'Portfolio', $args );
+    register_post_type( 'noticias', $args );
   
-}
-
-/* Action para o registro da Custom Taxonomy Tipo de Produto */
-add_action( 'init', 'create_custom_tax_tipo' );
-
-/* Método para o registro da Custom Taxonomy Tipo de Produto */ 
-function create_custom_tax_tipo(){
-    $custom_tax_nome = 'portfolio_category';
-    $custom_post_type_nome = 'portfolio';
-    $args = array(
-        'label' => __('Categorias'),
-        'hierarchical' => true,
-        'rewrite' => array('slug' => 'tipo')
-    );
-    register_taxonomy( $custom_tax_nome, $custom_post_type_nome, $args );
 }
   
 /* Hook into the 'init' action so that the function
@@ -257,6 +244,67 @@ function create_custom_tax_tipo(){
   
 add_action( 'init', 'custom_post_type', 0 );
 
+function custom_post_ferramentas() {
+  
+// Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Ferramentas', 'Post Type General Name', 'twentytwentyone' ),
+        'singular_name'       => _x( 'Ferramenta', 'Post Type Singular Name', 'twentytwentyone' ),
+        'menu_name'           => __( 'Ferramentas', 'twentytwentyone' ),
+        'parent_item_colon'   => __( 'Parent ferramenta', 'twentytwentyone' ),
+        'all_items'           => __( 'Todas as ferramentas', 'twentytwentyone' ),
+        'view_item'           => __( 'Ver ferramentas', 'twentytwentyone' ),
+        'add_new_item'        => __( 'Adicionar nova ferramenta', 'twentytwentyone' ),
+        'add_new'             => __( 'Adicionar nova', 'twentytwentyone' ),
+        'edit_item'           => __( 'Editar ferramenta', 'twentytwentyone' ),
+        'update_item'         => __( 'Atualizar ferramenta', 'twentytwentyone' ),
+        'search_items'        => __( 'Procurar ferramenta', 'twentytwentyone' ),
+        'not_found'           => __( 'Não encontrado', 'twentytwentyone' ),
+        'not_found_in_trash'  => __( 'Não encontrado na lixeira', 'twentytwentyone' ),
+    );
+      
+// Set other options for Custom Post Type
+      
+    $args = array(
+        'label'               => __( 'ferramentas', 'twentytwentyone' ),
+        'description'         => __( 'Ferramentas e resenhas', 'twentytwentyone' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        // You can associate this CPT with a taxonomy or custom taxonomy. 
+        'taxonomies'          => array( 'genres' ),
+        /* A hierarchical CPT is like Pages and can have
+        * Parent and child items. A non-hierarchical CPT
+        * is like Posts.
+        */
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest' => true,
+  
+    );
+      
+    // Registering your Custom Post Type
+    register_post_type( 'ferramentas', $args );
+  
+}
+  
+/* Hook into the 'init' action so that the function
+* Containing our post type registration is not 
+* unnecessarily executed. 
+*/
+  
+add_action( 'init', 'custom_post_ferramentas' );
+
 function mt_theme_style() {
     #### CSS
     wp_dequeue_style('style', get_template_directory_uri().'/assets/css/style.css');
@@ -264,25 +312,31 @@ function mt_theme_style() {
 
 // REMOVER CSS GUTENBERG CARREGADA AUTOMATICAMENTE COM O WORDPRESS
 function smartwp_remove_wp_block_library_css(){
-	/* wp_dequeue_style( 'wp-block-library' );
+	wp_dequeue_style( 'wp-block-library' );
 	wp_dequeue_style( 'wp-block-library-theme' );
 	wp_deregister_script('wp-mediaelement');
 	wp_deregister_style('wp-mediaelement');
 	 wp_dequeue_style( 'classic-theme-styles' );
 	wp_dequeue_style( 'global-styles' );
-	wp_dequeue_style( 'admin-bar-css' ); */
+	wp_dequeue_style( 'admin-bar-css' );
 } 
 add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
 
 // IMPEDE QUE O CSS DO JETPACK SEJA RENDERIZADO NA PÁGINA
 add_filter( 'jetpack_implode_frontend_css', '__return_false', 99 );
 
+function deregister_polyfill(){
+
+  wp_deregister_script( 'wp-polyfill' );
+  wp_deregister_script( 'regenerator-runtime' );
+
+}
+add_action( 'wp_enqueue_scripts', 'deregister_polyfill');
+
 /** Pagination */
 function pagination_funtion() {
-	
 	// Get total number of pages
 	global $wp_query;
-	global $query;
   	$query = $query ? $query : $wp_query;
   	$big = 999999999;
 	$paginate = paginate_links( array(

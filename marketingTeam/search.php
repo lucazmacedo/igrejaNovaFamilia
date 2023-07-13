@@ -9,44 +9,47 @@
 
 get_header();
 ?>
-
-	<main id="primary" class="site-main">
-
-		<?php if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
+<section class="pt-4">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="bg-primary  p-4 text-center rounded-3">
+					<h1 class="text-white m-0"><?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'marketingteam' ), '<span>' . get_search_query() . '</span>' );
-					?>
-				</h1>
-			</header><!-- .page-header -->
+					printf( esc_html__( 'Resultados de pesquisa para: %s', 'marketingteam' ), '<span>' . get_search_query() . '</span>' );
+					?></h1>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+<main class="container mt-3" >
+	<section class="pb-0 card-grid container">
+		<div class="col-md-12 mt-3">
+			<div class="row">
+				<?php
+				if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+				<!-- Card item START -->
+				<div class="col-sm col-md-4 p-0 mb-2">
+					<a class="card text-muted h-100 me-2" href="<?php the_permalink() ?>" style="text-decoration: none; ">				
+						<img src="<?= get_the_post_thumbnail_url( get_the_ID()); ?>" class="rounded img-fluid w-100" alt="<?php the_title(); ?>" loading="eager" />
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
+						<div class="card-body pt-3">
+							<h5 class="fw-bold"><?php the_title(); ?></h5>
+							<span class="text-muted"><?php the_excerpt(); ?></span>
+						</div>
+					</a>
+				</div>
 
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-	</main><!-- #main -->
+				<!-- Card item END -->
+				<?php endwhile; endif; ?>
+				<?php if (function_exists('pagination_funtion')) pagination_funtion(); ?>
+			</div>
+		</div>
+	</section>
+</main>
 
 <?php
 get_sidebar();

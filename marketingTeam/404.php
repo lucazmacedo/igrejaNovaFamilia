@@ -1,60 +1,19 @@
-<?php
-/**
- * The template for displaying 404 pages (not found)
- *
- * @link https://codex.wordpress.org/Creating_an_Error_404_Page
- *
- * @package MarketingTeam
- */
+<?php get_header(); ?>
 
-get_header();
-?>
+<main class="container pt-3" >
+	<div class="w-100 pt-2 ">
+		<!-- LOAD -->
+		<script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
+		<script src=" https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js "></script>
+		<div id="loading" class="loading centralize">
+			<lottie-player id="firstLottie" class="centralize loading m-auto" src="https://assets1.lottiefiles.com/packages/lf20_vzj1xd0x.json" background="transparent" speed="1" style="max-width: 350px;" loop autoplay>
+			</lottie-player>
 
-	<main id="primary" class="site-main">
+		</div>
+		<p id="loading" class="loading text-center">Que pena, não encontramos a página</p>
+		<a href="/" class="text-decoration-none text-center"><p id="loading" class="loading text-center">Volte para a página principal</p></a>
+		<!-- END LOAD -->
+	</div>
+</main>
 
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'marketingteam' ); ?></h1>
-			</header><!-- .page-header -->
-
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'marketingteam' ); ?></p>
-
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'marketingteam' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$marketingteam_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'marketingteam' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$marketingteam_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
-
-	</main><!-- #main -->
-
-<?php
-get_footer();
+<?php get_footer();
