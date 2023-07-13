@@ -24,25 +24,26 @@ $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao; ?>
 		font-family: "bootstrap-icons";
 		content: '\F6B0';
 	}
+
 	@media only screen and (max-width: 600px) {
 		.blockquote {
-		position: relative;
-		padding-left: 4rem;
-	}
+			position: relative;
+			padding-left: 4rem;
+		}
 
-	.blockquote::before {
-		position: absolute;
-		top: 0;
-		left: 0;
-		margin: -0.1875rem -0.1875rem 1rem -0.1875rem;
-		color: #3666af;
-		font-size: 3em;
-		line-height: 1;
-		padding-top: 1rem;
-		padding-left: 1rem;
-		font-family: "bootstrap-icons";
-		content: '\F6B0';
-	}
+		.blockquote::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			margin: -0.1875rem -0.1875rem 1rem -0.1875rem;
+			color: #3666af;
+			font-size: 3em;
+			line-height: 1;
+			padding-top: 1rem;
+			padding-left: 1rem;
+			font-family: "bootstrap-icons";
+			content: '\F6B0';
+		}
 	}
 </style>
 <section class="container py-5 my-md-2 my-lg-3 my-xl-4">
@@ -116,5 +117,51 @@ $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao; ?>
 
 	</div>
 </section>
-
+<section class="container pt-2 pt-sm-3 pb-5 mb-md-3 mb-lg-4 mb-xl-5">
+	<div class="d-flex align-items-center pb-3 mb-3 mb-lg-4">
+		<h2 class="h1 mb-0 me-4">Assista aos cultos</h2>
+	</div>
+	<div class="d-flex">
+		<div class="col-6 col-md-3 px-2">
+			<article>
+				<div class="">
+					<img class="rounded-5 img-fluid" src="http://localhost/Lucas/wordpress/wp-content/uploads/2023/07/church.png" alt="Post image">
+					<h3 class="h4 mt-4 mb-0">
+						<a class="text-decoration-none text-muted" href="#">How to look for inspiration for new goals in life and remember to give yourself a break?</a>
+					</h3>
+				</div>
+			</article>
+		</div>
+		<div class="col-6 col-md-3 px-2">
+			<article>
+				<div class="">
+					<img class="rounded-5 img-fluid" src="http://localhost/Lucas/wordpress/wp-content/uploads/2023/07/church.png" alt="Post image">
+					<h3 class="h4 mt-4 mb-0">
+						<a class="text-decoration-none text-muted" href="#">How to look for inspiration for new goals in life and remember to give yourself a break?</a>
+					</h3>
+				</div>
+			</article>
+		</div>
+		<div class="col-6 col-md-3 px-2">
+			<article>
+				<div class="position-relative">
+					<img class="rounded-5 img-fluid" src="http://localhost/Lucas/wordpress/wp-content/uploads/2023/07/church.png" alt="Post image">
+					<h3 class="h4 mt-4 mb-0">
+						<a class="text-decoration-none text-muted" href="#">How to look for inspiration for new goals in life and remember to give yourself a break?</a>
+					</h3>
+				</div>
+			</article>
+		</div>
+		<div class="col-6 col-md-3 px-2">
+			<article>
+				<div class="position-relative">
+					<img class="rounded-5 img-fluid" src="http://localhost/Lucas/wordpress/wp-content/uploads/2023/07/church.png" alt="Post image">
+					<h3 class="h4 mt-4 mb-0">
+						<a class="text-decoration-none text-muted" href="#">How to look for inspiration for new goals in life and remember to give yourself a break?</a>
+					</h3>
+				</div>
+			</article>
+		</div>
+	</div>
+</section>
 <?php get_footer();
